@@ -1,6 +1,6 @@
 # OpenPose Annotation Tool
-GUI to fix OpenPose mistakes.
 ![pose_editor](/assets/PoseEditor.png) 
+GUI to fix OpenPose mistakes
 ## Install
 This tool was developed in Python 3.7. <br>
 You can install packages with the following command
