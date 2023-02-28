@@ -1,6 +1,7 @@
 import os
 import glob
 import shutil
+from natsort import natsorted 
 
 import cv2
 from PyQt5.QtWidgets import *
@@ -40,7 +41,7 @@ def openJsonDir(self):
     self.json_dir = QFileDialog.getExistingDirectory(self, 'Select a directory with json files you want to fix') + '/'
     if self.json_dir == '/': return
     # Load JSON
-    self.jsonFiles = sorted(glob.glob(self.json_dir + '*.json'))
+    self.jsonFiles = natsorted(glob.glob(self.json_dir + '*.json'))
     if len(self.jsonFiles) == 0:
         QMessageBox.warning(self, 'Open Json Directory', 'There is no json file in ' + self.json_dir)
         return
@@ -64,9 +65,9 @@ def openImageDir(self):
     self.image_dir = QFileDialog.getExistingDirectory(self, 'Select the directory with the image corresponding to the pose you want to fix') + '/'
     if self.image_dir == '/': return
     # Load Images
-    jpg_images = glob.glob(self.image_dir + '*.jpg')
-    bmp_images = glob.glob(self.image_dir + '*.bmp')
-    png_images = glob.glob(self.image_dir + '*.png')
+    jpg_images = natsorted(glob.glob(self.image_dir + '*.jpg'))
+    bmp_images = natsorted(glob.glob(self.image_dir + '*.bmp'))
+    png_images = natsorted(glob.glob(self.image_dir + '*.png'))
     images = jpg_images + bmp_images + png_images
     self.imageFiles = sorted(images)
     if len(self.imageFiles) == 0:
@@ -74,8 +75,8 @@ def openImageDir(self):
         return
     sample_img = cv2.imread(self.imageFiles[0], cv2.IMREAD_COLOR)
     height, width, channels = sample_img.shape[:3]
-    self.xlim = width
-    self.ylim = height
+    self.xlim = 640 #width
+    self.ylim = 640 #height
     self.isOpenImageDir = True
 
 def resetOriginalPose(self):
