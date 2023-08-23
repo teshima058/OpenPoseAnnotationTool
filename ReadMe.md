@@ -19,6 +19,17 @@ So the process is ```17 keypoints -> 18 keypoints(neck added) -> 17 keypoints```
 ### Notes.
 - Currently, only one annotation per image can be edited.
 
+### Citation
+If our code is helpful, please kindly cite the following paper:
+```
+@INPROCEEDINGS{Kitamura2022:WACVws22,
+   author={Takumi Kitamura and Hitoshi Teshima and Diego Thomas and Hiroshi Kawasaki },
+   title={Refining OpenPose with a new sports dataset for robust 2D pose estimation},
+   booktitle={2022 IEEE/CVF Winter Conference on Applications of Computer Vision Workshops (WACVws)},
+   year={2022},
+}
+```
+
 <!-- ## Openpose annotation tool (17 keypoints)
 
 COCO datasetはダウンロード時には17個のkeypointsを持っています.
